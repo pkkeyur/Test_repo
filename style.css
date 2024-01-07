@@ -1,0 +1,40 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.table-container {
+    display: table;
+    width: calc(100% - 100px); /* Adjusted width to account for padding */
+    height: 100%;
+    margin: 50px; /* 50px space around the table */
+    table-layout: fixed;
+    border-spacing: 50px; /* Space between cells */
+    border-collapse: separate;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    position: relative; /* Relative positioning for tooltip */
+}
+
+.table-cell:hover::before {
+    content: attr(data-tooltip); /* Use the data-tooltip attribute as content */
+    display: block;
+    position: absolute;
+    top: -30px; /* Adjust this value for vertical position */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    z-index: 1;
+}
